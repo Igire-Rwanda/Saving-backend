@@ -6,7 +6,7 @@ const connectToMongoDb=()=>{
     .then(()=>{
         console.log("database connected succesfully");
     }).catch(()=>{
-        console.log("failed to connect to the database")
+        console.log("failed to connect to the db")
     })
 }
 
