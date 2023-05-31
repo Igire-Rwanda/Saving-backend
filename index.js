@@ -10,10 +10,13 @@ const connectToMongoDb=()=>{
     })
 }
 
+
+const express = require('express')
 const app =express();
 const port = 5500;
 
 app.listen(port,()=>{
     console.log('server is running on port 5500')
+    console.log(`nodemailerProject is listening at http://localhost:${port}`)
     connectToMongoDb();
 });
