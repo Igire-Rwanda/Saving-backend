@@ -6,7 +6,7 @@ const bankSchema= new mongoose.Schema({
         required:"bank number is required"
     },
     amount:{
-        type:Number,
+        type:'string',
         required:"amount is required"
 
     }
