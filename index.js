@@ -1,5 +1,6 @@
 import  express  from "express";
 import mongoose from "mongoose";
+import signupModel from "./models/signupModel";
 
 const connectToMongoDb=()=>{
     mongoose.connect('mongodb+srv://mysaving2023:Ourfuture!@cluster0.vvdet8p.mongodb.net/?retryWrites=true&w=majority')
