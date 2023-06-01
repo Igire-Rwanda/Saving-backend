@@ -1,16 +1,24 @@
 import signUpModel from "../Models/signUpModel.js"
+import bcrypt  from "bcrypt"
 
 const signUp=async(req,res)=>{
     try{ 
         const data=req.body
-        const existinguser=await signUpModel.findOne({username: data.username})
+        const salt= await bcrypt.genSalt(8);
+        const hashedPassword= await bcrypt.hash(data.Password,salt);
+        data.Password=hashedPassword
+
+        const existinguser= await signUpModel.findOne({Username: data.Username})
         if(existinguser){
             res.send("your user name account alread exing")
         }
         else{
             let userInfo=new signUpModel({
-                username: data.username,
-                password: data.password
+                Firstname:data.Firstname,
+                Lastname:data.Lastname,
+                Email:data.Email,
+                Username: data.Username,
+                Password: data.Password
            })
            const savedData = await userInfo.save();
             res.send(savedData)
@@ -36,11 +44,7 @@ const Login=async(req,res)=>{
             res.send("welcome to our home page")
         }
         else{
-            let userInfo=new signUpModel({
-                username: data.username,
-                password: data.password
-           })
-           const savedData = await userInfo.save();
+           
             res.send("Create your account ,or check your credentials")
         
 
