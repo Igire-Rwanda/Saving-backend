@@ -1,8 +1,10 @@
 import  express  from "express";
 import mongoose from "mongoose";
+import expense from "./routes/expense.js"
+import income from "./routes/income.js"
 
 const connectToMongoDb=()=>{
-    mongoose.connect('mongodb+srv://mysaving2023:Ourfuture!@cluster0.vvdet8p.mongodb.net/?retryWrites=true&w=majority')
+    mongoose.connect('mongodb+srv://mysaving2023:Ourfuture2023@cluster0.vvdet8p.mongodb.net/?retryWrites=true&w=majority')
     .then(()=>{
         console.log("database connected succesfully");
     }).catch(()=>{
@@ -10,13 +12,13 @@ const connectToMongoDb=()=>{
     })
 }
 
-
-const express = require('express')
 const app =express();
+app.use("/api/v1",expense)
+app.use("api/s",income)
+
 const port = 5500;
 
 app.listen(port,()=>{
     console.log('server is running on port 5500')
-    console.log(`nodemailerProject is listening at http://localhost:${port}`)
     connectToMongoDb();
 });
