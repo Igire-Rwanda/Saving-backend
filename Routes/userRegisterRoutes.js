@@ -1,8 +1,11 @@
 import express, { Router } from "express"
-import bodyparser from "body-parser"
-import signUp from "../controllers/userRegisterController"
+import bodyParser from "body-parser"
+import {signUp,Login} from "../controllers/userRegisterController.js"
 
-const  router=Router.bodyparser()
-router.use(bodyparser.json())
+const router=express.Router();
+router.use(bodyParser.json())
 
 router.post("/signup",signUp)
+router.get("/Login",Login)
+
+export default router

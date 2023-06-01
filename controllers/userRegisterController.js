@@ -1,33 +1,60 @@
 import signUpModel from "../Models/signUpModel.js"
 
 const signUp=async(req,res)=>{
-    try{
+    try{ 
         const data=req.body
-        
-        if(data){
-            res.status(404).json({
-            
-                message:"same credentials in our website"
-            })
+        const existinguser=await signUpModel.findOne({username: data.username})
+        if(existinguser){
+            res.send("your user name account alread exing")
         }
-        let signUpInstance= new signUpModel({
-            username: data.username,
-            password: data.password
-        });
+        else{
+            let userInfo=new signUpModel({
+                username: data.username,
+                password: data.password
+           })
+           const savedData = await userInfo.save();
+            res.send(savedData)
         
-        signUpInstance.save()
-        .then((data)=>{
-            res.send(data)
+
+
+
+        }
+        
+        }
+        catch(err){
+            console.log("some error:",err)
+            res.send("some error occured")
+        }
     
-        })
+        
+}
+const Login=async(req,res)=>{
+    try{ 
+        const data=req.body
+        const existinguser=await signUpModel.findOne({username: data.username})
+        if(existinguser){
+            res.send("welcome to our home page")
+        }
+        else{
+            let userInfo=new signUpModel({
+                username: data.username,
+                password: data.password
+           })
+           const savedData = await userInfo.save();
+            res.send("Create your account ,or check your credentials")
+        
+
+
+
+        }
+        
+        }
+        catch(err){
+            console.log("some error:",err)
+            res.send("some error occured")
+        }
     
-     }
-     
-     catch(err){
-        console.log("some error foiund")
-        res.send("collect your error")
-     }
-    
+        
 }
 
-export default signUp;
+export {signUp,Login};
