@@ -6,6 +6,6 @@ const router=express.Router();
 router.use(bodyParser.json())
 
 router.post("/signup",signUp)
-router.get("/Login",Login)
+router.post("/Login",Login)
 
 export default router
