@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors"
 import member from "./Routes/userRegisterRoutes.js"
+import savingroute from "./routes/savingroute.js";
+import bankroute from "./routes/bankroute.js"
+
 
 
 const connectToMongoDb=()=>{
@@ -12,10 +15,15 @@ const connectToMongoDb=()=>{
     }).catch((err)=>{
         console.log("failed to connect to the database",err)
     })
-}
-
+};
 const app =express();
 app.use(cors())
+app.use('/api/v1',savingroute)
+app.use('/api/v1',bankroute)
+
+
+
+
 const port = 5500;
 app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
