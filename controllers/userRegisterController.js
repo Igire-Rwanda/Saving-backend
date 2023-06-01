@@ -1,16 +1,19 @@
 import signUpModel from "../Models/signUpModel.js"
 import bcrypt  from "bcrypt"
 
-const signUp=async(req,res)=>{
+const SignUp=async(req,res)=>{
     try{ 
         const data=req.body
         const salt= await bcrypt.genSalt(8);
         const hashedPassword= await bcrypt.hash(data.Password,salt);
         data.Password=hashedPassword
 
-        const existinguser= await signUpModel.findOne({Username: data.Username})
+        const existinguser= await signUpModel.findOne({Email: data.Email})
         if(existinguser){
-            res.send("your user name account alread exing")
+            res.status(200).json({
+                message:"email already in use"
+            })
+            
         }
         else{
             let userInfo=new signUpModel({
@@ -39,9 +42,18 @@ const signUp=async(req,res)=>{
 const Login=async(req,res)=>{
     try{ 
         const data=req.body
-        const existinguser=await signUpModel.findOne({username: data.username})
-        if(existinguser){
-            res.send("welcome to our home page")
+        const existingUserEmail=await signUpModel.findOne({Email: data.Email})
+       
+        if(existingUserEmail ){
+            const existingUserEmailPassword= await bcrypt.compare(data.Password,existingUserEmail.Password)
+
+            if(existingUserEmailPassword){
+                res.status(200).json({
+                    message:"Account is real"
+                   })
+            }
+            
+          
         }
         else{
            
@@ -61,4 +73,4 @@ const Login=async(req,res)=>{
         
 }
 
-export {signUp,Login};
+export {SignUp,Login};

@@ -1,11 +1,11 @@
 import express, { Router } from "express"
 import bodyParser from "body-parser"
-import {signUp,Login} from "../controllers/userRegisterController.js"
+import {SignUp,Login} from "../Controllers/userRegisterController.js"
 
 const router=express.Router();
 router.use(bodyParser.json())
 
-router.post("/signup",signUp)
+router.post("/Signup",SignUp)
 router.post("/Login",Login)
 
 export default router
