@@ -4,7 +4,8 @@ import bodyParser from "body-parser";
 import cors from "cors"
 import member from "./Routes/userRegisterRoutes.js"
 import savingroute from "./routes/savingroute.js";
-import bankroute from "./routes/bankroute.js"
+import bankroute from "./routes/bankroute.js";
+import expenseRoute from "./Routes/expenseRoute.js"
 
 
 
@@ -20,6 +21,7 @@ const app =express();
 app.use(cors())
 app.use('/api/v1',savingroute)
 app.use('/api/v1',bankroute)
+app.use('/api/v1', expenseRoute)
 
 
 
