@@ -1,11 +1,16 @@
 import signUpModel from "../Models/signUpModel.js"
 import bcrypt  from "bcrypt"
+import jwt from "jsonwebtoken"
+
+
+
+const secretKey='@@key'//This is my secret key
 
 const SignUp=async(req,res)=>{
     try{ 
         const data=req.body
         const salt= await bcrypt.genSalt(8);
-        const hashedPassword= await bcrypt.hash(data.Password,salt);
+        const hashedPassword= await bcrypt.hash(data.Password, salt);
         data.Password=hashedPassword
 
         const existinguser= await signUpModel.findOne({Email: data.Email})
@@ -24,7 +29,11 @@ const SignUp=async(req,res)=>{
                 Password: data.Password
            })
            const savedData = await userInfo.save();
-            res.send(savedData)
+           const token=jwt.sign({userId:savedData._id},secretKey)
+            res.json({
+                message:"account successfully  created",
+                token:token
+            })
         
 
 
@@ -48,8 +57,11 @@ const Login=async(req,res)=>{
             const existingUserEmailPassword= await bcrypt.compare(data.Password,existingUserEmail.Password)
 
             if(existingUserEmailPassword){
+                const token=jwt.sign({userId:existingUserEmail._id},secretKey)
+
                 res.status(200).json({
-                    message:"Account is real"
+                    message:"Login succesful",
+                    token:token
                    })
             }else{
                 res.status(200).json({
