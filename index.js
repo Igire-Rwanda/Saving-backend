@@ -1,7 +1,7 @@
 import  express  from "express";
 import mongoose from "mongoose";
-import expense from "./routes/expense.js"
-import income from "./routes/income.js"
+import expense from "./Routes/expense.js"
+import income from "./Routes/income.js"
 
 const connectToMongoDb=()=>{
     mongoose.connect('mongodb+srv://mysaving2023:Ourfuture2023@cluster0.vvdet8p.mongodb.net/?retryWrites=true&w=majority')
@@ -14,7 +14,7 @@ const connectToMongoDb=()=>{
 
 const app =express();
 app.use("/api/v1",expense)
-app.use("api/s",income)
+app.use("/api/v1",income)
 
 const port = 5500;
 

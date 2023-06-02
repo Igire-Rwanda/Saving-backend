@@ -5,7 +5,8 @@ const expenseSchema= new mongoose.Schema({
         type: String
        },
     Amount: {
-        type: String
+        type: String,
+        required:false,
     }
 })
 export default mongoose.model("expense", expenseSchema);
