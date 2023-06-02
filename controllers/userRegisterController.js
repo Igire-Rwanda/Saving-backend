@@ -51,6 +51,10 @@ const Login=async(req,res)=>{
                 res.status(200).json({
                     message:"Account is real"
                    })
+            }else{
+                res.status(200).json({
+                    message:"your password is incorrect"
+                })
             }
             
           
