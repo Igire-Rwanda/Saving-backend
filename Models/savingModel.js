@@ -1,15 +1,19 @@
 import mongoose from "mongoose";
 
 const savingSchema= new mongoose.Schema({
-    savingName:{
+    userId:{
         type:'string',
-        required:"name is required"
+        requiered:"user id is required"
     },
-    amount:{
+    accountNumber:{
+        type:'string',
+        required:"account number is required"
+    },
+    balance:{
         type:'String',
         required:"amount is required"
 
     }
     
 })
-export default mongoose.model('saving',savingSchema);
+export default mongoose.model('savingAccount',savingSchema);
