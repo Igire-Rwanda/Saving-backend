@@ -2,8 +2,8 @@
 import Expense from "../Models/ExpenseModel.js"
 
 
-const createExpense = async (req , res) =>{
-     try{
+const createExpense = async (req, res) => {
+     try {
           const expense = new Expense({
                user_id: req.body.user_id,
                category: req.body.category,
@@ -12,37 +12,36 @@ const createExpense = async (req , res) =>{
           });
           const expenseCreated = await expense.save()
           res.status(201).json({
-               message : "Expense Saved Successfully",
-               expense : expenseCreated
-               })
-               }catch(error){
-                    res.status(400).json({
-                         message :("Error Occured While Saving Expense" +error) 
-                       
-                         })
-                         }
+               message: "Expense Saved Successfully",
+               expense: expenseCreated
+          })
+     } catch (error) {
+          res.status(400).json({
+               message: ("Error Occured While Saving Expense" + error)
 
-     
+          })
+     }
+
+
 
 }
 
 
 const readExpense = async (req, res) => {
      try {
-          let id = req.params.reqId;
-          let query = {_id:id};
-          const expenses = await Expense.find(query);
-          if (expenses) {
-               return res.status(200).json({
-                    success: true,
-                    data: expenses
-               })
+          const expenses = await Expense.find({});
+          if (expenses.length == 0) {
+               res.status(404).json({
+                    message: "No Expense Found"
+               });
+
 
           } else {
-               return res.status(404).json({
-                    message: "No expenses found",
+               res.status(200).json({
+                    message: "expenses retreived successfully",
                     success: false,
-                    
+                    expenses: expenses
+
                })
           }
 
@@ -51,13 +50,13 @@ const readExpense = async (req, res) => {
 
      catch (err) {
           console.log(err)
-          return res.status(500).json({
+          res.status(500).json({
                success: false,
                error: "Server Error"
           })
      }
 }
-export{readExpense , createExpense} ;
+export { readExpense, createExpense };
 
 
 
