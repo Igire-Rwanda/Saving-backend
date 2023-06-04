@@ -27,4 +27,4 @@ const signUpschema=new mongoose.Schema({
 
 })
 
-export default mongoose.model("signUpModel",signUpschema)
+export default mongoose.model("Users",signUpschema)

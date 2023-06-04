@@ -1,4 +1,4 @@
-import signUpModel from "../Models/signUpModel.js"
+import Users from "../Models/signUpModel.js"
 import bcrypt  from "bcrypt"
 import jwt from "jsonwebtoken"
 
@@ -6,14 +6,17 @@ import jwt from "jsonwebtoken"
 
 const secretKey='@@key'//This is my secret key
 
-const SignUp=async(req,res)=>{
+const SignUpController=async(req,res)=>{
     try{ 
         const data=req.body
+        if (data.length === 0) {
+            return res.status(400).json({ message: "Empty data" });
+          }
         const salt= await bcrypt.genSalt(8);
         const hashedPassword= await bcrypt.hash(data.Password, salt);
         data.Password=hashedPassword
 
-        const existinguser= await signUpModel.findOne({Email: data.Email})
+        const existinguser= await Users.findOne({Email: data.Email})
         if(existinguser){
             res.status(200).json({
                 message:"email already in use"
@@ -21,7 +24,7 @@ const SignUp=async(req,res)=>{
             
         }
         else{
-            let userInfo=new signUpModel({
+            let userInfo=new Users({
                 Firstname:data.Firstname,
                 Lastname:data.Lastname,
                 Email:data.Email,
@@ -51,7 +54,7 @@ const SignUp=async(req,res)=>{
 const Login=async(req,res)=>{
     try{ 
         const data=req.body
-        const existingUserEmail=await signUpModel.findOne({Email: data.Email})
+        const existingUserEmail=await Users.findOne({Email: data.Email})
        
         if(existingUserEmail ){
             const existingUserEmailPassword= await bcrypt.compare(data.Password,existingUserEmail.Password)
@@ -89,4 +92,4 @@ const Login=async(req,res)=>{
         
 }
 
-export {SignUp,Login};
+export {SignUpController,Login};
