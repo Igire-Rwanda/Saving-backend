@@ -7,6 +7,7 @@ import member from "./Routes/userRegisterRoutes.js"
 import savingroute from "./routes/savingroute.js";
 import bankroute from "./routes/bankroute.js"
 import dotenv from "dotenv";
+import {readUser} from "./controllers/userRegisterController.js";
 
 
 dotenv.config();
@@ -23,7 +24,7 @@ const app = express();
 app.use(cors())
 app.use('/api/v1', savingroute)
 app.use('/api/v1', bankroute)
-
+app.use('/api/v1', readUser)
 
 
 
