@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors"
+
 import member from "./Routes/userRegisterRoutes.js"
 import savingroute from "./routes/savingroute.js";
 import bankroute from "./routes/bankroute.js"
@@ -27,6 +28,9 @@ app.use('/api/v1', bankroute)
 
 
 const port = 5500;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
+
 app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
 
