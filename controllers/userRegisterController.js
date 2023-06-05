@@ -31,7 +31,11 @@ const SignUpController=async(req,res)=>{
                 Username: data.Username,
                 Password: data.Password
            })
+          
            const savedData = await userInfo.save();
+           if(savedData.length==0){
+            res.send("empty data")
+           }
            const token=jwt.sign({userId:savedData._id},secretKey)
             res.json({
                 message:"account successfully  created",
