@@ -7,7 +7,8 @@ import member from "./Routes/userRegisterRoutes.js"
 import savingroute from "./routes/savingroute.js";
 
 import bankroute from "./routes/bankroute.js";
-import expenseRoute from "./Routes/expenseRoute.js"
+import expenseRoute from "./Routes/expenseRoute.js";
+import incomeRoute from "./Routes/incomeRoute.js";
 
 import dotenv from "dotenv";
 
@@ -29,6 +30,7 @@ app.use(cors())
 app.use('/api/v1',savingroute)
 app.use('/api/v1',bankroute)
 app.use('/api/v1', expenseRoute)
+app.use('/api/v1', incomeRoute)
 
 
 

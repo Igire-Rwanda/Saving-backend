@@ -22,6 +22,7 @@ const createIncome = async (req, res) => {
 
 }
 
+
 const readIncome = async (req, res) => {
      try {
           let id = req.params.reqId;
