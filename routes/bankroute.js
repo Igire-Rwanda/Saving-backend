@@ -1,10 +1,11 @@
-import  express  from "express";
+import express from "express";
 import bodyParser from "body-parser";
-import createBank from "../controllers/bankcontroller.js";
+import { createBank, getBank } from "../Controllers/bankcontroller.js";
 
-const router =express.Router();
+
+const router = express.Router();
 router.use(bodyParser.json());
-router.post("/bank",createBank)
-router.get("/bank",createBank)
+router.post("/new/bank", createBank)
+router.get("/bank", getBank)
 
 export default router;
