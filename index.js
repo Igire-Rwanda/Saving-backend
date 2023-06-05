@@ -11,6 +11,7 @@ import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
 
 import dotenv from "dotenv";
+import {readUser} from "./controllers/userRegisterController.js";
 
 
 
@@ -26,6 +27,9 @@ const connectToMongoDb = () => {
 };
 const app = express();
 app.use(cors())
+
+
+app.use('/api/v1', readUser)
 
 app.use('/api/v1',savingroute)
 app.use('/api/v1',bankroute)
