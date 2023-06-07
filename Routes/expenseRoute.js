@@ -1,6 +1,6 @@
 import express from "express"
 import bodyParser from "body-parser";
-import {createExpense,readExpense} from "../controllers/ExpenseController.js"
+import {createExpense,readExpense} from "../Controllers/ExpenseController.js"
 const router = express.Router();
 router.use(bodyParser.json());
 router.post("/create" ,createExpense );
