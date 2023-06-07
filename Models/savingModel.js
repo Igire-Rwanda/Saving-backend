@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const savingSchema= new mongoose.Schema({
-    userId:{
-        type:'string',
-        requiered:"user id is required"
+    Users_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Users"
     },
     accountNumber:{
         type:'string',
