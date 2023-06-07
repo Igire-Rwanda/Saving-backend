@@ -8,6 +8,8 @@ import savingroute from "./routes/savingroute.js";
 import bankroute from "./routes/bankroute.js"
 import dotenv from "dotenv";
 import {readUser} from "./controllers/userRegisterController.js";
+import Home from "./Routes/userRegisterRoutes.js"
+import router from "./Routes/userRegisterRoutes.js";
 
 
 dotenv.config();
@@ -36,6 +38,7 @@ app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
 
 app.use("/api/v1/user", member)
+// app.use("/", Home)
 
 app.listen(port, () => {
     console.log('server is running on port 5500')
