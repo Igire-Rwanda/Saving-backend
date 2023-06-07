@@ -5,11 +5,16 @@ import cors from "cors"
 
 import member from "./Routes/userRegisterRoutes.js"
 import savingroute from "./routes/savingroute.js";
-import bankroute from "./routes/bankroute.js"
+
+import bankroute from "./routes/bankroute.js";
+import expenseRoute from "./Routes/expenseRoute.js";
+import incomeRoute from "./Routes/incomeRoute.js";
+
 import dotenv from "dotenv";
 import {readUser} from "./controllers/userRegisterController.js";
 import Home from "./Routes/userRegisterRoutes.js"
 import router from "./Routes/userRegisterRoutes.js";
+
 
 
 dotenv.config();
@@ -24,9 +29,16 @@ const connectToMongoDb = () => {
 };
 const app = express();
 app.use(cors())
-app.use('/api/v1', savingroute)
-app.use('/api/v1', bankroute)
+
+
 app.use('/api/v1', readUser)
+
+app.use('/api/v1',savingroute)
+app.use('/api/v1',bankroute)
+app.use('/api/v1', expenseRoute)
+app.use('/api/v1', incomeRoute)
+
+
 
 
 
