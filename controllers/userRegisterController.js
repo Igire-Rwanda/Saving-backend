@@ -96,4 +96,30 @@ const Login=async(req,res)=>{
         
 }
 
-export {SignUpController,Login};
+export const readUser = async (req, res) =>{
+    try{
+        const response = await Users.find({})
+        if (response.length == 0){
+            res.status(409).json({
+                message: "No data Found",
+                data: response,
+                error: "Data not found",
+            })
+        }else{
+           res.status(200).json({
+            message: "Users Found successfully",
+            error: null,
+            data: response
+       })
+  }
+}
+catch(err) {
+  console.log("error catched", err)
+  res.status(500).json({
+       message: "failed find data",
+       error: "failed"
+  })
+}}
+
+
+export {SignUpController,Login };
