@@ -11,7 +11,7 @@ import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
 
 import dotenv from "dotenv";
-import {readUser} from "./controllers/userRegisterController.js";
+import {readUser} from "./Controllers/userRegisterController.js";
 import Home from "./Routes/userRegisterRoutes.js"
 import router from "./Routes/userRegisterRoutes.js";
 

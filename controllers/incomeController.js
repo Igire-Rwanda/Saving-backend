@@ -39,4 +39,4 @@ const readIncome = async (req, res) => {
      }
 
 }
-export {createIncome , readIncome} ;
+export {createIncome , readIncome } ;
