@@ -11,8 +11,6 @@ import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
 
 import dotenv from "dotenv";
-import Home from "./Routes/userRegisterRoutes.js"
-import router from "./Routes/userRegisterRoutes.js";
 
 
 
