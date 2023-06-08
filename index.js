@@ -27,7 +27,7 @@ const connectToMongoDb = () => {
 const app = express();
 app.use(cors())
 
-app.get("/api/v1/", welcome)
+app.get("/", welcome);
 // app.use('/api/v1', readUser)
 
 app.use('/api/v1',savingroute)
