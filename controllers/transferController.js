@@ -1,4 +1,5 @@
 import bankAccouts  from "../Models/bankModel.js"
+import savingAccount from "../Models/savingModel.js"
 
 
 const transfer=async(req,res)=>{
@@ -23,8 +24,21 @@ const transfer=async(req,res)=>{
             )
         
         }
-        res.status(200).json(bankAccount.Amount)   
-        
+
+        ///THis ection is about updating saving account based on the amount
+        const saving=savingAccount.findOne({accountHolder:email})
+        if(!saving){
+            res.status(400).json({message:"you do not have saving wallet"})
+        }
+        else{
+        const currentSaving=await savingAccount.findOneAndUpdate(
+            {accountHolder:email},
+            {$inc:{amount:+amount}},
+            {new :true}
+        )
+        res.status(200).json(currentSaving.amount)
+        console.log(currentSaving.amount)
+        }
 
     }
     catch(err){
