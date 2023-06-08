@@ -45,7 +45,7 @@ const SignUpController = async (req, res) => {
 
             var mailOptions = {
                 from: 'mysaving2023@gmail.com',
-                to: 'niwemfurac@gmail.com ',
+                to: 'eddydashner2@gmail.com',
 
                 subject: 'you have succesfully signedIN',
                 text: 'hey there',
