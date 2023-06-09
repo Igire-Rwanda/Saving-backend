@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken"
 
 
 
+
 // const secretKey='@@key'//This is my secret key
 
 // const SignUpController=async(req,res)=>{
