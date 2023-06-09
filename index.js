@@ -3,12 +3,12 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors"
 
-import member from "./Routes/userRegisterRoutes.js"
-import savingroute from "./routes/savingroute.js";
+// import member from "./Routes/userRegisterRoutes.js"
+// import savingroute from "./routes/savingroute.js";
 
-import bankroute from "./routes/bankroute.js";
-import expenseRoute from "./Routes/expenseRoute.js";
-import incomeRoute from "./Routes/incomeRoute.js";
+// import bankroute from "./routes/bankroute.js";
+// import expenseRoute from "./Routes/expenseRoute.js";
+// import incomeRoute from "./Routes/incomeRoute.js";
 
 import dotenv from "dotenv";
 
@@ -34,10 +34,10 @@ app.get("/",(req, res) => {
 
 // app.use('/api/v1', readUser)
 
-app.use('/api/v1',savingroute)
-app.use('/api/v1',bankroute)
-app.use('/api/v1', expenseRoute)
-app.use('/api/v1', incomeRoute)
+// app.use('/api/v1',savingroute)
+// app.use('/api/v1',bankroute)
+// app.use('/api/v1', expenseRoute)
+// app.use('/api/v1', incomeRoute)
 
 
 
@@ -50,7 +50,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
 
-app.use("/api/v1/user", member)
+// app.use("/api/v1/user", member)
 // app.use("/", Home)
 
 app.listen(port, () => {
