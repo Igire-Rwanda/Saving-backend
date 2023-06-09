@@ -1,8 +1,8 @@
 import express from "express"
 import bodyParser from "body-parser";
-import {createExpense,readExpense} from "../Controllers/ExpenseController.js"
+import addExpense from "../Controllers/ExpenseController.js"
 const router = express.Router();
 router.use(bodyParser.json());
-router.post("/create" ,createExpense );
-router.get("/read", readExpense);
+router.post ("/addExpense", addExpense)
+
 export default router;

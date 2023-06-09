@@ -7,6 +7,7 @@ import member from "./Routes/userRegisterRoutes.js"
 import savingroute from "./routes/savingroute.js";
 import bankroute from "./routes/bankroute.js"
 import transferRoute from "./Routes/transferRoute.js"
+import addExpense from "./Routes/expenseRoute.js"
 import dotenv from "dotenv";
 import {readUser} from "./Controllers/userRegisterController.js";
 import Home from "./Routes/userRegisterRoutes.js"
@@ -29,6 +30,7 @@ app.use(cors())
 app.use('/api/v1', savingroute)
 app.use('/api/v1', bankroute)
 app.use('/api/v1/user',transferRoute)
+app.use('/api/v1', addExpense)
 
 
 
