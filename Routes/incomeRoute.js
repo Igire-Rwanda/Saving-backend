@@ -1,10 +1,11 @@
 import express from "express"
 import bodyParser from "body-parser";
+// import incom
 
-import  {incomeRoute , readIncome} from "../controllers/incomeController.js"
+import  {readIncome , createIncome} from "../Controllers/incomeController.js";
 const router = express.Router();
 router.use(bodyParser.json());
-router.post ("/createincome", incomeRoute);
+router.post ("/createincome", createIncome);
 router.get ("/get", readIncome);
 
 
