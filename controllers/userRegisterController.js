@@ -1,6 +1,6 @@
-// import Users from "../Models/signUpModel.js"
-// import bcrypt  from "bcrypt"
-// import jwt from "jsonwebtoken"
+import Users from "../Models/signUpModel.js"
+import bcrypt  from "bcrypt"
+import jwt from "jsonwebtoken"
 
 
 
