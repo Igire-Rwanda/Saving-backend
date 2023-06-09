@@ -3,12 +3,14 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors"
 
-import member from "./Routes/userRegisterRoutes.js"
-import savingroute from "./Routes/savingroute.js";
-import readUser from "./Routes/userRegisterRoutes.js"
-import bankroute from "./Routes/bankroute.js";
-import expenseRoute from "./Routes/expenseRoute.js";
-import incomeRoute from "./Routes/incomeRoute.js";
+
+// import member from "./Routes/userRegisterRoutes.js"
+// import savingroute from "./routes/savingroute.js";
+
+import bankroute from "./routes/bankroute.js";
+// import expenseRoute from "./Routes/expenseRoute.js";
+// import incomeRoute from "./Routes/incomeRoute.js";
+
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -47,6 +49,11 @@ app.get("/",(req, res) => {
 });
 
 
+
+// app.use('/api/v1',savingroute)
+app.use('/api/v1',bankroute)
+// app.use('/api/v1', expenseRoute)
+// app.use('/api/v1', incomeRoute)
 
 
 
