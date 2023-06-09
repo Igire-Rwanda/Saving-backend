@@ -5,7 +5,7 @@ import cors from "cors"
 
 import member from "./Routes/userRegisterRoutes.js"
 import savingroute from "./routes/savingroute.js";
-import welcome from "./Controllers/welcome.js";
+
 import bankroute from "./routes/bankroute.js";
 import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
@@ -27,7 +27,9 @@ const connectToMongoDb = () => {
 const app = express();
 app.use(cors())
 
-app.get("/", welcome);
+app.get("/",(req, res) => {
+    res.send("Welcome in our deployment page saving ! ")
+});
 
 
 // app.use('/api/v1', readUser)
