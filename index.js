@@ -28,7 +28,7 @@ const app = express();
 app.use(cors())
 
 app.get("/",(req, res) => {
-    res.send("Welcome in our deployment page saving ! ")
+    res.send("Welcome in our deployment page saving mentor! ")
 });
 
 
