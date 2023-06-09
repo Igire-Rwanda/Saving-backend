@@ -4,12 +4,14 @@ import bodyParser from "body-parser";
 import cors from "cors"
 
 
-// import member from "./Routes/userRegisterRoutes.js"
-// import savingroute from "./routes/savingroute.js";
-
+import member from "./Routes/userRegisterRoutes.js"
+import savingroute from "./routes/savingroute.js";
+import welcome from "./Controllers/welcome.js"
 import bankroute from "./routes/bankroute.js";
-// import expenseRoute from "./Routes/expenseRoute.js";
-// import incomeRoute from "./Routes/incomeRoute.js";
+import expenseRoute from "./Routes/expenseRoute.js";
+import incomeRoute from "./Routes/incomeRoute.js";
+import teamsRoute from "./Routes/teamsRoute.js";
+
 
 
 import dotenv from "dotenv";
@@ -44,16 +46,18 @@ app.listen(port, () => {
 });
 
 
+
+app.use('/api/v1', savingroute)
+app.use('/api/v1', bankroute)
+app.use('/api/v1', expenseRoute)
+app.use('/api/v1', incomeRoute)
+app.use('/api/v1', teamsRoute)
+=======
 app.get("/",(req, res) => {
     res.send("Welcome in our deployment page saving mentor! ")
 });
 
 
-
-// app.use('/api/v1',savingroute)
-app.use('/api/v1',bankroute)
-// app.use('/api/v1', expenseRoute)
-// app.use('/api/v1', incomeRoute)
 
 
 
