@@ -9,6 +9,7 @@ import welcome from "./Controllers/welcome.js"
 import bankroute from "./routes/bankroute.js";
 import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
+import teamsRoute from "./Routes/teamsRoute.js";
 
 import dotenv from "dotenv";
 
@@ -30,10 +31,11 @@ app.use(cors())
 app.get("/", welcome);
 // app.use('/api/v1', readUser)
 
-app.use('/api/v1',savingroute)
-app.use('/api/v1',bankroute)
+app.use('/api/v1', savingroute)
+app.use('/api/v1', bankroute)
 app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
+app.use('/api/v1', teamsRoute)
 
 
 
