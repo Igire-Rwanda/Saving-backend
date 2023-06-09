@@ -96,7 +96,7 @@ const Login=async(req,res)=>{
         
 }
 
-export const readUser = async (req, res) =>{
+const readUser = async (req, res) =>{
     try{
         const response = await Users.find({})
         if (response.length == 0){
@@ -122,4 +122,4 @@ catch(err) {
 }}
 
 
-export {SignUpController,Login };
+export {SignUpController,Login,readUser };
