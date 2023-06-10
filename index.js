@@ -16,7 +16,11 @@ import welcome from "./Controllers/welcome.js"
 
 import expenseRoute from "./Routes/expenseRoute.js";
 
+import incomeRoute from "./Routes/incomeRoute.js";
+import goalRoute from "./Routes/goalRoute.js"
+
 import teamsRoute from "./Routes/teamsRoute.js";
+
 
 
 
@@ -36,6 +40,7 @@ app.use('/api/v1',bankroute)
 app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
 app.use("/api/v1/user", member)
+app.use("/api/v1", goalRoute)
 
 
 const port = 5500;
