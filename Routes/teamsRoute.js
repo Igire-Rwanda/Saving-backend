@@ -1,11 +1,9 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { createBank, getBank } from "../Controllers/bankcontroller.js";
-
+import createTeams from "../Controllers/teamsController.js";
 
 const router = express.Router();
 router.use(bodyParser.json());
-router.post("/new/bank", createBank);
-router.get("/bank", getBank);
+router.post("/new/teams", createTeams)
 
 export default router;
