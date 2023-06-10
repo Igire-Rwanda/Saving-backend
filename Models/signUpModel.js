@@ -1,15 +1,30 @@
 import mongoose from "mongoose"
 
 const signUpschema=new mongoose.Schema({
- username:{
+ Firstname:{
     type:String,
+    required:"this is required"
+ },
+ Lastname:{
+    type:String,
+ },
+ Email:{
+    type:String,
+    required:"Email is required"
+ },
+ Username:{
+    type:String,
+    required:"this is required"
+    
     
  },
- password:{
+ Password:{
     type:String,
+    required:"This is required"
+    
  }
 
 
 })
 
-export default mongoose.model("signUpModel",signUpschema)
+export default mongoose.model("Users",signUpschema)
