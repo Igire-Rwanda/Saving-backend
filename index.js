@@ -40,6 +40,7 @@ app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
 app.use("/api/v1/user", member)
 app.use("/api/v1", goalRoute)
+app.use("/api/v1/user", teamsRoute)
 app.use("/api/v1/user", joinTeam)
 
 
