@@ -1,3 +1,4 @@
+
 import bankAccouts  from "../Models/bankModel.js"
 import savingAccount from "../Models/savingModel.js"
 
@@ -54,6 +55,12 @@ const transfer=async(req,res)=>{
 
 
     // res.send("this is transfer")
+
+
+
+const transfer=(req,res)=>{
+    res.send("this is transfer")
+
 }
 
 export default transfer;
