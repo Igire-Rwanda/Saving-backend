@@ -16,4 +16,4 @@ const bankSchema = new mongoose.Schema({
     }
 
 })
-export default mongoose.model('bankAccouts', bankSchema);
+export default mongoose.model('bankAccounts', bankSchema);
