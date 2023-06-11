@@ -12,6 +12,10 @@ const goalSchema = new mongoose.Schema({
      timeline:{
           type: String,
           required:"the time is required"
+     },
+     email:{
+          type: String,
+          required: "Email is required"
      }
 
 })

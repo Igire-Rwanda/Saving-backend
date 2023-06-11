@@ -12,6 +12,7 @@ const createGoal = async (req, res) => {
           }
           else{
              const savingNeeded= amount/timeline ;
+          //    const goalCreated = await goalModel.save()
              res.status(200).json({
                message:"the amount needed to achieve your goal is" ,
              savingNeeded:savingNeeded
