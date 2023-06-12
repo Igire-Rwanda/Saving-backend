@@ -15,12 +15,20 @@ const joinTeam=async(req,res)=>{
         }
 
         else{
-            if(amount < currentTeam.requiredAmount){
-                res.status(400).json({error:"insuffiecinet amount"})
-            }else{
-                res.status(200).json({message:"now you joined team a"});
+             if(currentTeam.members.includes(username)){
+                res.status(400).json({message:"looks that you have already joined"})
+             }
+             else if(amount < currentTeam.requiredAmount){
+                res.status(400).json({message:"insuffiecinet amount"})
+            }
+            else{
+           console.log(currentTeam.wallet +=amount)
+           console.log(currentTeam.wallet)
+           
+           
             currentTeam.members.push(username);
             await currentTeam.save()
+            res.status(200).json({message:"now you joined team a"});
             }
             
         }
