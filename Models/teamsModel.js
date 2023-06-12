@@ -18,6 +18,10 @@ const teamSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    wallet: {
+        type: Number,
+
+    }
 });
 
 

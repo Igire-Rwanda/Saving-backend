@@ -6,11 +6,11 @@ import cors from "cors"
 
 import member from "./Routes/userRegisterRoutes.js"
 import savingroute from "./routes/savingroute.js";
-import welcome from "./Controllers/welcome.js"
 import bankroute from "./routes/bankroute.js";
 import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
 import teamsRoute from "./Routes/teamsRoute.js";
+import readUser from "./Routes/userRegisterRoutes.js";
 
 
 
@@ -24,12 +24,12 @@ app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
 app.use('/api/v1', readUser)
-app.use('/api/v1',savingroute)
-app.use('/api/v1',bankroute)
+app.use('/api/v1', savingroute)
+app.use('/api/v1', bankroute)
 app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
 app.use("/api/v1/user", member)
-
+app.use('/api/v1', teamsRoute)
 
 const port = 5500;
 const connectToMongoDb = () => {
@@ -41,21 +41,11 @@ const connectToMongoDb = () => {
         })
 }
 app.listen(port, () => {
-    console.log('server is running on port'+port)
+    console.log('server is running on port' + port)
     connectToMongoDb();
 });
 
 
-
-app.use('/api/v1', savingroute)
-app.use('/api/v1', bankroute)
-app.use('/api/v1', expenseRoute)
-app.use('/api/v1', incomeRoute)
-app.use('/api/v1', teamsRoute)
-=======
-app.get("/",(req, res) => {
-    res.send("Welcome in our deployment page saving mentor! ")
-});
 
 
 

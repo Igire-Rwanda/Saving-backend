@@ -7,7 +7,8 @@ const createTeams = async (req, res) => {
         const bodyData = {
             name: req.body.name,
             members: req.body.members,
-            requiredAmount: req.body.requiredAmount
+            requiredAmount: req.body.requiredAmount,
+            wallet: req.body.wallet
 
         }
 
@@ -20,7 +21,9 @@ const createTeams = async (req, res) => {
         const data = new teamsSchema({
             name: req.body.name,
             members: req.body.members,
-            requiredAmount: req.body.requiredAmount
+            requiredAmount: req.body.requiredAmount,
+            wallet: req.body.wallet
+
         });
         let result = await data.save();
         if (result) {
