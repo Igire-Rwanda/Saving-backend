@@ -18,6 +18,16 @@ const createTeams = async (req, res) => {
             });
         }
 
+        const validEmails = req.body.members.filter((member) =>
+            (member.email)
+        );
+
+        if (validEmails.length < 3) {
+            return res.status(400).json({
+                error: 'Please provide at least three valid email addresses.'
+            });
+        }
+
         const data = new teamsSchema({
             name: req.body.name,
             members: req.body.members,
