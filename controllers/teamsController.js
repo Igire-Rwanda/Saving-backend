@@ -7,7 +7,8 @@ const createTeams = async (req, res) => {
         const bodyData = {
             name: req.body.name,
             members: req.body.members,
-            requiredAmount: req.body.requiredAmount
+            requiredAmount: req.body.requiredAmount,
+            wallet: req.body.wallet
 
         }
 
@@ -17,10 +18,22 @@ const createTeams = async (req, res) => {
             });
         }
 
+        const validEmails = req.body.members.filter((member) =>
+            (member.email)
+        );
+
+        if (validEmails.length < 3) {
+            return res.status(400).json({
+                error: 'Please provide at least three valid email addresses.'
+            });
+        }
+
         const data = new teamsSchema({
             name: req.body.name,
             members: req.body.members,
-            requiredAmount: req.body.requiredAmount
+            requiredAmount: req.body.requiredAmount,
+            wallet: req.body.wallet
+
         });
         let result = await data.save();
         if (result) {
