@@ -12,40 +12,19 @@ import member from "./Routes/userRegisterRoutes.js"
 import teamsRoute from "./Routes/teamsRoute.js"
 
 
-import savingroute from "./routes/savingroute.js";
-import bankroute from "./routes/bankroute.js"
-import transferRoute from "./Routes/transferRoute.js"
 
+
+import transferRoute from "./Routes/transferRoute.js"
 import addExpense from "./Routes/expenseRoute.js"
 import dotenv from "dotenv";
 import Home from "./Routes/userRegisterRoutes.js"
-import router from "./Routes/userRegisterRoutes.js";
+
+import incomeRoute from "./Routes/incomeRoute.js"
 import expenseRoute from "./Routes/expenseRoute.js";
 
 
-import dotenv from "dotenv";
 
-
-
-import savingroute from "./routes/savingroute.js";
 import welcome from "./Controllers/welcome.js"
-import bankroute from "./routes/bankroute.js";
-import transferRoute from "./Routes/transferRoute.js"
-
-
-
-
-
-import addExpense from "./Routes/expenseRoute.js"
-import dotenv from "dotenv";
-import Home from "./Routes/homeRoute.js"
-import expenseRoute from "./Routes/expenseRoute.js";
-
-
-
-
-
-
 
 
 
@@ -65,13 +44,7 @@ app.use("/", Home)
 app.use("/api/v1/user", member)
 app.use("/api/v1/user", teamsRoute)
 
-
-
-
-
-
 app.use('/api/v1', addExpense)
-
 
 app.get("/api/v1/", welcome)
 
@@ -80,8 +53,7 @@ app.get("/api/v1/", welcome)
 app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
 app.use('/api/v1', teamsRoute)
-
-// app.use('/api/v1/user',transferRoute)
+app.use('/api/v1/user', transferRoute)
 
 
 
