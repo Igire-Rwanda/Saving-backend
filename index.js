@@ -9,7 +9,7 @@ import welcome from "./Controllers/welcome.js"
 import bankroute from "./routes/bankroute.js";
 import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
-
+import response from "./Routes/response.js";
 import dotenv from "dotenv";
 
 
@@ -45,7 +45,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
-
+app.use("/api/v1/res", response)
 app.use("/api/v1/user", member)
 // app.use("/", Home)
 

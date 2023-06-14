@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken"
 
 
 
-const secretKey='@@key'//This is my secret key
+const secretKey='@@key'
 
 const SignUpController=async(req,res)=>{
     try{ 
@@ -19,6 +19,7 @@ const SignUpController=async(req,res)=>{
         const existinguser= await Users.findOne({Email: data.Email})
         if(existinguser){
             res.status(200).json({
+                
                 message:"email already in use"
             })
             
