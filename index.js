@@ -17,14 +17,14 @@ import teamsRoute from "./Routes/teamsRoute.js"
 import transferRoute from "./Routes/transferRoute.js"
 import addExpense from "./Routes/expenseRoute.js"
 import dotenv from "dotenv";
-import Home from "./Routes/userRegisterRoutes.js"
+import Home from "./Routes/homeRoute.js"
 
 import incomeRoute from "./Routes/incomeRoute.js"
 import expenseRoute from "./Routes/expenseRoute.js";
 
 
 
-import welcome from "./Controllers/welcome.js"
+import welcome from "./controllers/welcome.js"
 
 
 
