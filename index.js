@@ -24,7 +24,7 @@ import expenseRoute from "./Routes/expenseRoute.js";
 
 
 
-import welcome from "./controllers/welcome.js"
+
 
 
 
@@ -46,7 +46,7 @@ app.use("/api/v1/user", teamsRoute)
 
 app.use('/api/v1', addExpense)
 
-app.get("/api/v1/", welcome)
+
 
 
 
