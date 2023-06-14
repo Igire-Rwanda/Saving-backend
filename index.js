@@ -43,34 +43,16 @@ app.use('/api/v1', expenseRoute)
 app.use("/", Home)
 app.use("/api/v1/user", member)
 app.use("/api/v1/user", teamsRoute)
-
 app.use('/api/v1', addExpense)
-
-
-
-
-
 app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
 app.use('/api/v1', teamsRoute)
 app.use('/api/v1/user', transferRoute)
-
-
-
-
-
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
-
-
-
-
-
 
 
 
