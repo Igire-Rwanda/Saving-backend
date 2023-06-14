@@ -5,6 +5,32 @@ import cors from "cors"
 
 
 
+
+import member from "./Routes/userRegisterRoutes.js"
+import savingroute from "./routes/savingroute.js";
+import bankroute from "./routes/bankroute.js"
+import transferRoute from "./Routes/transferRoute.js"
+import addExpense from "./Routes/expenseRoute.js"
+import dotenv from "dotenv";
+import {readUser} from "./Controllers/userRegisterController.js";
+import Home from "./Routes/userRegisterRoutes.js"
+import router from "./Routes/userRegisterRoutes.js";
+
+// import bankroute from "./routes/bankroute.js";
+import expenseRoute from "./Routes/expenseRoute.js";
+// import incomeRoute from "./Routes/incomeRoute.js";
+
+import dotenv from "dotenv";
+
+
+import member from "./Routes/userRegisterRoutes.js"
+import savingroute from "./routes/savingroute.js";
+import welcome from "./Controllers/welcome.js"
+import bankroute from "./routes/bankroute.js";
+import bankroute from "./routes/bankroute.js"
+import transferRoute from "./Routes/transferRoute.js"
+import dotenv from "dotenv";
+
 // import member from "./Routes/userRegisterRoutes.js"
 // import savingroute from "./routes/savingroute.js";
 // import bankroute from "./routes/bankroute.js"
@@ -51,9 +77,13 @@ app.use("/", Home)
 // app.use('/api/v1', expenseRoute)
 // app.use('/api/v1', incomeRoute)
 
+app.get("/api/v1/", welcome)
 
 
 
+app.use('/api/v1', expenseRoute)
+app.use('/api/v1', incomeRoute)
+app.use('/api/v1', teamsRoute)
 
 // app.use('/api/v1/user',transferRoute)
 
@@ -89,6 +119,9 @@ app.listen(port, () => {
     console.log('server is running on port' + port)
     connectToMongoDb();
 });
+
+
+
 
 
 
