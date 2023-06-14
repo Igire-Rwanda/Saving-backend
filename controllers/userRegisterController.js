@@ -5,7 +5,14 @@ import nodemailer from "nodemailer"
 
 
 
-const secretKey = '@@key'//This is my secret key
+import savingAccount from "../Models/savingModel.js"
+import bankAccouts  from "../Models/bankModel.js"
+import bcrypt  from "bcrypt"
+
+
+import jwt from "jsonwebtoken"
+const secretKey='@@key'//This is my secret key
+
 
 const SignUpController = async (req, res) => {
     try {
@@ -31,6 +38,7 @@ const SignUpController = async (req, res) => {
                 Email: data.Email,
                 Username: data.Username,
                 Password: data.Password
+
             })
             const savingMantor = nodemailer.createTransport({
                 service: 'gmail',
@@ -51,27 +59,41 @@ const SignUpController = async (req, res) => {
                 text: 'hey there',
                 html: 'thank you for joining the best communnity when it comes to saving, we love you ❤️',
             };
+           })
+          
+           const savedData = await userInfo.save();
+           if(savedData.length==0){
+            res.send("empty data")
+           }
+/// THis code is about saving account
+let saving=new savingAccount({
+    accountHolder:data.Email,
+    amount:0
+})
+saving.save()
+// THis is bank account
 
-            savingMantor.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('message sent:%s', info.messageId);
-                }
-            });
-
-            const savedData = await userInfo.save();
-            if (savedData.length == 0) {
-                res.send("empty data")
-            }
+let bankAccount=new bankAccouts({
+    bankHolder:data.Email,
+    Amount:800000
+})
+bankAccount.save()
 
 
-            const token = jwt.sign({ userId: savedData._id }, secretKey)
+
+
+
+
+
+           const token=jwt.sign({userId:savedData._id},secretKey)
             res.json({
-                message: "account successfully  created",
-                token: token
+                message:"account successfully  created",
+                token:token,
+                
             })
-        }
+
+
+
 
     }
     catch (err) {
@@ -147,9 +169,43 @@ export const readUser = async (req, res) => {
         res.status(500).json({
             message: "failed find data",
             error: "failed"
+        
+
+
+
+
+
+
+
+const readUser = async (req, res) =>{
+
+    try{
+        const response = await Users.find({})
+        if (response.length == 0){
+
+            res.status(409).json({
+                message: "No data Found",
+                data: response,
+                error: "Data not found",
+            })
+
+        } else {
+            res.status(200).json({
+                message: "Users Found successfully",
+                error: null,
+                data: response
+            })
+        }
+    }
+    catch (err) {
+        console.log("error catched", err)
+        res.status(500).json({
+            message: "failed find data",
+            error: "failed"
         })
     }
 }
 
+export {SignUpController,Login,readUser };
 
-export { SignUpController, Login };
+
