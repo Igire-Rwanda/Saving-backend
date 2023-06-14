@@ -9,13 +9,13 @@ import member from "./Routes/userRegisterRoutes.js"
 // import savingroute from "./routes/savingroute.js";
 // import bankroute from "./routes/bankroute.js"
 // import transferRoute from "./Routes/transferRoute.js"
-// import addExpense from "./Routes/expenseRoute.js"
+import addExpense from "./Routes/expenseRoute.js"
 import dotenv from "dotenv";
 import Home from "./Routes/homeRoute.js"
 // import router from "./Routes/userRegisterRoutes.js";
 
 // import bankroute from "./routes/bankroute.js";
-// import expenseRoute from "./Routes/expenseRoute.js";
+import expenseRoute from "./Routes/expenseRoute.js";
 // import incomeRoute from "./Routes/incomeRoute.js";
 
 
@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to acce
 
 // app.use('/api/v1', savingroute)
 // app.use('/api/v1', bankroute)
-// app.use('/api/v1', expenseRoute)
+app.use('/api/v1', expenseRoute)
 app.use("/", Home)
 app.use("/api/v1/user", member)
 
@@ -47,7 +47,7 @@ app.use("/api/v1/user", member)
 
 // app.use('/api/v1',savingroute)
 // app.use('/api/v1',bankroute)
-// app.use('/api/v1', expenseRoute)
+app.use('/api/v1', addExpense)
 // app.use('/api/v1', incomeRoute)
 
 
