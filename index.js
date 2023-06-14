@@ -5,13 +5,12 @@ import cors from "cors"
 
 
 
-// import member from "./Routes/userRegisterRoutes.js"
+import member from "./Routes/userRegisterRoutes.js"
 // import savingroute from "./routes/savingroute.js";
 // import bankroute from "./routes/bankroute.js"
 // import transferRoute from "./Routes/transferRoute.js"
 // import addExpense from "./Routes/expenseRoute.js"
 import dotenv from "dotenv";
-
 import Home from "./Routes/homeRoute.js"
 // import router from "./Routes/userRegisterRoutes.js";
 
@@ -35,12 +34,12 @@ app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
 
-// app.use('/api/v1', readUser)
+
 // app.use('/api/v1', savingroute)
 // app.use('/api/v1', bankroute)
 // app.use('/api/v1', expenseRoute)
 app.use("/", Home)
-// app.use("/api/v1/user", member)
+app.use("/api/v1/user", member)
 
 
 
