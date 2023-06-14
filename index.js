@@ -6,6 +6,7 @@ import cors from "cors"
 
 
 import member from "./Routes/userRegisterRoutes.js"
+import teamsRoute from "./Routes/teamsRoute.js"
 // import savingroute from "./routes/savingroute.js";
 // import bankroute from "./routes/bankroute.js"
 // import transferRoute from "./Routes/transferRoute.js"
@@ -17,13 +18,6 @@ import Home from "./Routes/homeRoute.js"
 // import bankroute from "./routes/bankroute.js";
 import expenseRoute from "./Routes/expenseRoute.js";
 // import incomeRoute from "./Routes/incomeRoute.js";
-
-
-
-
-
-
-
 
 dotenv.config();
 const app = express();
@@ -40,6 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to acce
 app.use('/api/v1', expenseRoute)
 app.use("/", Home)
 app.use("/api/v1/user", member)
+app.use("/api/v1/user", teamsRoute)
 
 
 
@@ -68,7 +63,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
 
-// app.use("/api/v1/user", member)
+
 
 
 
