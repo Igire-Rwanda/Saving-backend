@@ -13,6 +13,7 @@ const savingSchema= new mongoose.Schema({
     balance:{
         type:'String',
         required:"amount is required"
+    },
 
    accountHolder:{
     type:String,

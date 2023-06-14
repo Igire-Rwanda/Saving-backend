@@ -6,7 +6,7 @@ import  {readIncome , createIncome} from "../Controllers/incomeController.js";
 const router = express.Router();
 router.use(bodyParser.json());
 router.post ("/createincome", createIncome);
-router.get ("/get", readIncome);
+router.get ("/getincome", readIncome);
 
 
 export default router;
