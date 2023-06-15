@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import createTeams from "../Controllers/teamsController.js";
+import createTeams from "../controllers/teamsController.js";
 
 const router = express.Router();
 router.use(bodyParser.json());

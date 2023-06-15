@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import bodyParser from "body-parser";
-import {SignUpController,Login, readUser} from "../Controllers/userRegisterController.js"
+import {SignUpController,Login, readUser} from "../controllers/userRegisterController.js"
 
 
 const router=express.Router();
