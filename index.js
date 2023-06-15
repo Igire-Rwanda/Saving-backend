@@ -23,6 +23,20 @@ import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
 import transferRoute from "./Routes/transferRoute.js"
 import addExpense from "./Routes/expenseRoute.js"
+
+
+import savingroute from "./routes/savingroute.js";
+
+import bankroute from "./routes/bankroute.js";
+
+
+
+// import member from "./Routes/userRegisterRoutes.js"
+// import savingroute from "./routes/savingroute.js";
+import welcome from "./Controllers/welcome.js"
+
+
+
 import incomeRoute from "./Routes/incomeRoute.js"
 
 import dotenv from "dotenv";
@@ -39,8 +53,13 @@ app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to acce
 app.use('/api/v1', expenseRoute)
 app.use("/", Home)
 app.use("/api/v1/user", member)
+app.use('/api/v1', teamsRoute)
+
+// app.use('/api/v1', readUser)
+app.use('/api/v1', savingroute)
+app.use('/api/v1', bankroute)
 app.use("/api/v1/user", teamsRoute)
-app.use("/api/v1/user",joinTeam )
+app.use("/api/v1/user", joinTeam)
 app.use('/api/v1', addExpense)
 app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
