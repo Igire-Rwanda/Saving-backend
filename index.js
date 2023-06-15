@@ -10,6 +10,7 @@ import cors from "cors"
 import member from "./Routes/userRegisterRoutes.js"
 
 import teamsRoute from "./Routes/teamsRoute.js"
+import joinTeam from "./Routes/joinTeamRoute.js"
 
 
 
@@ -43,6 +44,7 @@ app.use('/api/v1', expenseRoute)
 app.use("/", Home)
 app.use("/api/v1/user", member)
 app.use("/api/v1/user", teamsRoute)
+app.use("/api/v1/user",joinTeam )
 app.use('/api/v1', addExpense)
 app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
