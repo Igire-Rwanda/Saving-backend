@@ -11,7 +11,7 @@ import bankroute from "./routes/bankroute.js"
 import transferRoute from "./Routes/transferRoute.js"
 import addExpense from "./Routes/expenseRoute.js"
 import dotenv from "dotenv";
-import {readUser} from "./Controllers/userRegisterController.js";
+import { readUser } from "./Controllers/userRegisterController.js";
 import Home from "./Routes/userRegisterRoutes.js"
 import router from "./Routes/userRegisterRoutes.js";
 
@@ -26,7 +26,7 @@ import member from "./Routes/userRegisterRoutes.js"
 import savingroute from "./routes/savingroute.js";
 
 import bankroute from "./routes/bankroute.js";
-=
+
 import bankroute from "./routes/bankroute.js"
 import transferRoute from "./Routes/transferRoute.js"
 import dotenv from "dotenv";
@@ -75,18 +75,20 @@ app.use("/api/v1/user", member)
 app.use('/api/v1', teamsRoute)
 
 // app.use('/api/v1', readUser)
-app.use('/api/v1',savingroute)
-app.use('/api/v1',bankroute)
+app.use('/api/v1', savingroute)
+app.use('/api/v1', bankroute)
 app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
 app.use("/api/v1/user", member)
 app.use("/api/v1", goalRoute)
 app.use("/api/v1/user", teamsRoute)
 app.use("/api/v1/user", joinTeam)
+app.use("/api/v1/sms", joinTeam)
 
 
 
-const port = 5500;
+
+// const port = 5500;
 const connectToMongoDb = () => {
     mongoose.connect(process.env.MONGOPASS)
         .then(() => {
@@ -107,14 +109,14 @@ app.use('/api/v1', savingroute)
 app.use('/api/v1', bankroute)
 
 
-app.use('/api/v1/user',transferRoute)
+app.use('/api/v1/user', transferRoute)
 app.use('/api/v1', addExpense)
 
 app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
 app.use('/api/v1', teamsRoute)
 
-app.get("/",(req, res) => {
+app.get("/", (req, res) => {
     res.send("Welcome in our deployment page saving mentor! ")
 });
 
@@ -130,7 +132,7 @@ app.use('/api/v1', expenseRoute)
 
 
 
-app.use('/api/v1/user',transferRoute)
+app.use('/api/v1/user', transferRoute);
 
 
 
