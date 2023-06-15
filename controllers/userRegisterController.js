@@ -14,9 +14,12 @@ import { resourceLimits } from "worker_threads"
 const secretKey = '@@key'//This is my secret key
 
 
-const SignUpController = async (req, res) => {
-    try {
-        const data = req.body
+
+const SignUpController=async(req,res)=>{
+    try{ 
+        const data=req.body
+
+
         if (data.length === 0) {
             return res.status(400).json({ message: "Empty data" });
         }
@@ -27,7 +30,10 @@ const SignUpController = async (req, res) => {
         const existinguser = await Users.findOne({ Email: data.Email })
         if (existinguser) {
             res.status(200).json({
-                message: "email already in use"
+
+                
+                message:"email already in use"
+
             })
 
         }
