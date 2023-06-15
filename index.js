@@ -33,10 +33,25 @@ import dotenv from "dotenv";
 
 // import member from "./Routes/userRegisterRoutes.js"
 // import savingroute from "./routes/savingroute.js";
+
+import welcome from "./Controllers/welcome.js"
+
+
+import expenseRoute from "./Routes/expenseRoute.js";
+
+import incomeRoute from "./Routes/incomeRoute.js";
+
+import response from "./Routes/response.js";
+
+
+import teamsRoute from "./Routes/teamsRoute.js";
+import readUser from "./Routes/userRegisterRoutes.js";
+
 // import bankroute from "./routes/bankroute.js"
 // import transferRoute from "./Routes/transferRoute.js"
 // import addExpense from "./Routes/expenseRoute.js"
 import dotenv from "dotenv";
+
 
 import Home from "./Routes/homeRoute.js"
 // import router from "./Routes/userRegisterRoutes.js";
@@ -47,6 +62,9 @@ import Home from "./Routes/homeRoute.js"
 
 
 
+
+
+import dotenv from "dotenv";
 
 
 
@@ -126,6 +144,12 @@ app.listen(port, () => {
 
 
 
+
+app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
+app.use("/api/v1/res", response)
+app.use("/api/v1/user", member)
+// app.use("/", Home)
 
 
 
