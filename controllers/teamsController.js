@@ -53,4 +53,21 @@ const createTeams = async (req, res) => {
     }
 };
 
-export default createTeams;
+const getAllTeams = async (req, res) => {
+    try {
+        const teams = await teamsSchema.find();
+        res.status(200).json({
+            message: "All teams retrieved successfully",
+            data: teams
+        });
+    } catch (error) {
+        console.log("Error occurred", error);
+        res.status(500).json({
+            message: "Error occurred",
+            error: error,
+            data: null
+        });
+    }
+};
+
+export { createTeams, getAllTeams };
