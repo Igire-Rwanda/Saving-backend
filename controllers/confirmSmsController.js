@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-import teamSchema from "../Models/teamsModel"
+import teamSchema from "../Models/teamsModel.js"
 
 
 

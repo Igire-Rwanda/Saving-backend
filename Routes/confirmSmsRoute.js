@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import confirmSms from "../controllers/confirmSmsController";
+import confirmSms from "../controllers/confirmSmsController.js";
 
 
 const router = express.Router();
