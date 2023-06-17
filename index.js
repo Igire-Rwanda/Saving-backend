@@ -10,7 +10,7 @@ import cors from "cors"
 import member from "./Routes/userRegisterRoutes.js"
 
 import teamsRoute from "./Routes/teamsRoute.js"
-
+import  response from "./Routes/response.js";
 
 
 
@@ -22,7 +22,7 @@ import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
 import transferRoute from "./Routes/transferRoute.js"
 import addExpense from "./Routes/expenseRoute.js"
-import incomeRoute from "./Routes/incomeRoute.js"
+
 
 import dotenv from "dotenv";
 

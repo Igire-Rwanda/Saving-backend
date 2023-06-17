@@ -2,7 +2,7 @@ import confirmation from "../Models/confirmation.js";
 
 const checkVotes = async (req, res) => {
   try {
-    const users = await confirmation.find().limit(100); // Retrieve the latest 100 users
+    const users = await confirmation.find().limit(100);
 
     const trueVotes = users.filter(user => user.vote === true);
     const falseVotes = users.filter(user => user.vote === false);
@@ -11,7 +11,9 @@ const checkVotes = async (req, res) => {
       message: "Vote check completed",
       trueVotes: trueVotes.length,
       falseVotes: falseVotes.length,
+
     });
+   
   } catch (err) {
     console.log("Error caught:", err);
     res.status(500).json({
