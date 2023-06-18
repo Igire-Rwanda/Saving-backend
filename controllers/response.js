@@ -17,6 +17,7 @@ const vote = async (req, res) => {
 
     // Check if the email has already voted
     let existingUser = await confirmation.findOne({ 
+      team:data.name,
       email: data.email 
     });
     if (existingUser) {
@@ -30,16 +31,17 @@ const vote = async (req, res) => {
     }
 
     let voteInstance = new confirmation({
-      team:data.name,
+     
       email: data.email,
       vote: data.vote,
     });
 
     let result = await voteInstance.save();
-
+const TeamName= team.name
     res.status(200).json({
+      TeamName,
       message: "Data saved successfully",
-      error: null,
+    
       data: result,
     });
   } catch (err) {
