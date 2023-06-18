@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import createSaving from "../Controllers/savingcontroller.js";
+import createSaving from "../controllers/savingcontroller.js";
 
 const router = express.Router();
 router.use(bodyParser.json());
