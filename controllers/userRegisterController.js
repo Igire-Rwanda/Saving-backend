@@ -18,9 +18,7 @@ const secretKey = '@@key'//This is my secret key
 const SignUpController=async(req,res)=>{
     try{ 
         const data=req.body
-
-
-        if (data.length === 0) {
+           if (data.length === 0) {
             return res.status(400).json({ message: "Empty data" });
         }
         const salt = await bcrypt.genSalt(8);
