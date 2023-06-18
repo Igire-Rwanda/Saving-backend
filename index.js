@@ -28,7 +28,7 @@ import confirmsms from "./Routes/confirmSmsRoute.js"
 
 import savingroute from "./Routes/savingroute.js"
 
-import bankroute from "./routes/bankroute.js";
+import bankroute from "./Routes/bankroute.js";
 
 
 
