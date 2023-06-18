@@ -1,10 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { createTeams, getAllTeams } from "../controllers/teamsController.js";
+import confirmSms from "../controllers/confirmSmsController.js";
+
 
 const router = express.Router();
 router.use(bodyParser.json());
-router.post("/new/teams", createTeams)
-router.get("/teams", getAllTeams);
+router.post("/confirm", confirmSms);
+
 
 export default router;
