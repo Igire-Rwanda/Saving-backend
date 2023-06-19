@@ -37,8 +37,7 @@ import bankroute from "./Routes/bankroute.js";
 import transactionRoutes from './Routes/transactionRoutes.js';
 
 
-// import member from "./Routes/userRegisterRoutes.js"
-// import savingroute from "./routes/savingroute.js";
+
 
 
 
@@ -106,7 +105,7 @@ app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
 app.use("/api/v1/res", response)
 
-// app.use("/", Home)
+
 
 
 
