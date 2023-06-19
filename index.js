@@ -9,7 +9,7 @@ import Home from "./Routes/homeRoute.js";
 import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
 import transferRoute from "./Routes/transferRoute.js"
-import addExpense from "./Routes/expenseRoute.js"
+
 import goalRoute from "./Routes/goalRoute.js"
 import response from "./Routes/response.js"
 import confirmSms from "./Routes/confirmSmsRoute.js"
@@ -35,7 +35,6 @@ app.use('/api/v1', savingroute)
 app.use('/api/v1', bankroute)
 app.use("/api/v1/user", teamsRoute)
 app.use("/api/v1/user", joinTeam)
-app.use('/api/v1', addExpense)
 app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
 app.use('/api/v1', teamsRoute)
