@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { createBank, getBank } from "../Controllers/bankcontroller.js";
+import { createBank, getBank } from "../controllers/bankcontroller.js";
 
 
 const router = express.Router();
