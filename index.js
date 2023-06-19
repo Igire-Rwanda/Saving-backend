@@ -8,11 +8,11 @@ import joinTeam from "./Routes/joinTeamRoute.js"
 import Home from "./Routes/homeRoute.js";
 import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
-import transferRoute from "./Routes/transferRoute.js"
-import goalRoute from "./Routes/goalRoute.js"
-import response from "./Routes/response.js"
-import confirmSms from "./Routes/confirmSmsRoute.js"
-import bankroute from "./Routes/bankroute.js"
+import transferRoute from "./Routes/transferRoute.js";
+import goalRoute from "./Routes/goalRoute.js";
+import response from "./Routes/response.js";
+import confirmSms from "./Routes/confirmSmsRoute.js";
+import bankroute from "./Routes/bankroute.js";
 import transactionRoutes from './Routes/transactionRoutes.js';
 import dotenv from "dotenv";
 
