@@ -23,29 +23,13 @@ import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
 import transferRoute from "./Routes/transferRoute.js"
 import addExpense from "./Routes/expenseRoute.js"
-
-
-import incomeRoute from "./Routes/incomeRoute.js"
 import expenseRoute from "./Routes/expenseRoute.js"
 import goalRoute from "./Routes/goalRoute.js"
 import response from "./Routes/response.js"
-
-
 import confirmSms from "./Routes/confirmSmsRoute.js"
-
-
 import savingroute from "./Routes/savingroute.js"
-
 import bankroute from "./Routes/bankroute.js";
-
 import transactionRoutes from './Routes/transactionRoutes.js';
-
-
-
-
-
-
-
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -72,15 +56,12 @@ app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
 app.use('/api/v1', teamsRoute)
 app.use('/api/v1/user', transferRoute)
-
 app.use('/api/v1', goalRoute)
-app.use('/api/v1/sms',confirmsms)
-
-
+// app.use('/api/v1/sms',confirmsms)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
-app.use( "/transfer" , transactionRoutes);
-
+app.use("/transfer", transactionRoutes);
+app.use("/api/v1/res", response)
 
 
 const connectToMongoDb = () => {
@@ -105,8 +86,8 @@ app.listen(port, () => {
 
 
 app.use(bodyParser.json())
-// app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
-app.use("/api/v1/res", response)
+// app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form
+
 
 
 
