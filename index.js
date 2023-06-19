@@ -2,22 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors"
-
-
-
-
-
 import member from "./Routes/userRegisterRoutes.js"
-
 import teamsRoute from "./Routes/teamsRoute.js"
 import joinTeam from "./Routes/joinTeamRoute.js"
-
-
-
-
-
-
-
 import Home from "./Routes/homeRoute.js";
 import expenseRoute from "./Routes/expenseRoute.js";
 import incomeRoute from "./Routes/incomeRoute.js";
@@ -45,8 +32,6 @@ app.use('/api/v1', expenseRoute)
 app.use("/", Home)
 app.use("/api/v1/user", member)
 app.use('/api/v1', teamsRoute)
-
-// app.use('/api/v1', readUser)
 app.use('/api/v1', savingroute)
 app.use('/api/v1', bankroute)
 app.use("/api/v1/user", teamsRoute)
