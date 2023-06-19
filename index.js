@@ -12,7 +12,7 @@ import transferRoute from "./Routes/transferRoute.js";
 import goalRoute from "./Routes/goalRoute.js";
 import response from "./Routes/response.js";
 import confirmSms from "./Routes/confirmSmsRoute.js";
-import bankroute from "./Routes/bankroute.js";
+// import bankroute from "./Routes/bankroute.js";
 import transactionRoutes from './Routes/transactionRoutes.js';
 import dotenv from "dotenv";
 
@@ -29,7 +29,7 @@ app.use('/api/v1', expenseRoute)
 app.use("/", Home)
 app.use("/api/v1/user", member)
 app.use('/api/v1', teamsRoute)
-app.use('/api/v1', bankroute)
+// app.use('/api/v1', bankroute)
 app.use("/api/v1/user", teamsRoute)
 app.use("/api/v1/user", joinTeam)
 app.use('/api/v1', incomeRoute)
