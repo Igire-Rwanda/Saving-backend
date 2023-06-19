@@ -20,7 +20,8 @@ import dotenv from "dotenv";
 import Home from "./Routes/homeRoute.js"
 
 import incomeRoute from "./Routes/incomeRoute.js"
-import expenseRoute from "./Routes/expenseRoute.js";
+import expenseRoute from "./Routes/expenseRoute.js"
+import goalRoute from "./Routes/goalRoute.js"
 
 
 
@@ -48,6 +49,7 @@ app.use('/api/v1', expenseRoute)
 app.use('/api/v1', incomeRoute)
 app.use('/api/v1', teamsRoute)
 app.use('/api/v1/user', transferRoute)
+app.use('/api/v1', goalRoute)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
