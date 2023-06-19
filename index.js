@@ -29,7 +29,7 @@ import savingroute from "./routes/savingroute.js";
 
 import bankroute from "./routes/bankroute.js";
 import response from "./Routes/response.js"
-
+import transactionRoutes from './Routes/transactionRoutes.js';
 
 
 // import member from "./Routes/userRegisterRoutes.js"
@@ -65,7 +65,7 @@ app.use('/api/v1/user', transferRoute)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
-
+app.use( "/transfer" , transactionRoutes);
 
 
 
