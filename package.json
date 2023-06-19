@@ -8,6 +8,7 @@
     "compile": "babel-node index.js",
     "dev": "nodemon index.js",
     "start": "node index.js"
+
   },
   "repository": {
     "type": "git",

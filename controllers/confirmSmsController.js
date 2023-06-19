@@ -6,7 +6,7 @@ import teamSchema from "../Models/teamsModel.js"
 const confirmSms = async (req, res) => {
     try {
         //let array = [{ name: "Marquise", email: "marquineza10@gmail.com" }, { name: "patrick", email: "munyeshurimanzi@gmail.com" }];
-        //let team = req.body.team;
+        //let team = req.y.team;
         const data = req.body;
 
         const confirm = await teamSchema.findOne({ name: data.name });
