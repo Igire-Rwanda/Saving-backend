@@ -30,9 +30,9 @@ import response from "./Routes/response.js"
 import confirmSms from "./Routes/confirmSmsRoute.js"
 
 
-import savingroute from "./routes/savingroute.js";
+import savingroute from "./Routes/savingroute.js"
 
-import bankroute from "./routes/bankroute.js";
+import bankroute from "./Routes/bankroute.js";
 import response from "./Routes/response.js"
 import transactionRoutes from './Routes/transactionRoutes.js';
 
@@ -105,7 +105,7 @@ app.listen(port, () => {
 app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form 
 app.use("/api/v1/res", response)
-app.use("/api/v1/user", member)
+
 // app.use("/", Home)
 
 
