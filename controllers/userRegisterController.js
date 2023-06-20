@@ -114,9 +114,11 @@ const Login = async (req, res) => {
     try {
         const data = req.body
         const existingUserEmail = await Users.findOne({ Email: data.Email })
+        if(!existingUserEmail){
+            res.status(400).json({message:"Invalid email"})
+        }
 
-
-        if (existingUserEmail) {
+        else if (existingUserEmail) {
             const existingUserEmailPassword = await bcrypt.compare(data.Password, existingUserEmail.Password)
 
             if (existingUserEmailPassword) {
@@ -127,8 +129,8 @@ const Login = async (req, res) => {
                     token: token
                 })
             } else {
-                res.status(200).json({
-                    message: "your password is incorrect"
+                res.status(401).json({
+                    message: "Invalid password"
                 })
             }
 
@@ -136,12 +138,12 @@ const Login = async (req, res) => {
         }
         else {
 
-            res.send("Create your account ,or check your credentials")
+            res.status(400).json({message:"Invalid credential or create your account"})
         }
     }
     catch (err) {
         console.log("some error:", err)
-        res.send("some error occured")
+        res.status(500).json({message:"error occured"})
     }
 
 
