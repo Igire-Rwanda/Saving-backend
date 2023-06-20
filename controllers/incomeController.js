@@ -3,10 +3,10 @@ import incomes from "../Models/incomeModel.js"
 const createIncome = async (req, res) => {
      try {
           const income = new incomes({
-               user_id: req.body.user_id,
-               amount: req.body.amount,
-               date: req.body.date,
-               source: req.body.source
+               email: req.body.email,
+               incomeAmount: req.body.incomeAmount,
+               Period: req.body.Period,
+               incomeType: req.body.incomeType
 
           });
           const incomeSaved = await income.save()
