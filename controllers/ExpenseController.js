@@ -52,10 +52,10 @@ import Expense from "../Models/ExpenseModel.js"
 const createExpense = async (req, res) => {
      try {
           const expense = new Expense({
-               user_id: req.body.user_id,
-               category: req.body.category,
-               date: req.body.date,
-               amount: req.body.amount,
+               email: req.body.email,
+               expenseType: req.body.expenseType,
+               Period: req.body.Period,
+               amountSpent: req.body.amountSpent,
           });
           const expenseCreated = await expense.save()
           res.status(201).json({
