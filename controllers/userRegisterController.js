@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken"
 import nodemailer from "nodemailer"
 
 import savingAccount from "../Models/savingModel.js"
-import bankAccouts from "../Models/bankModel.js"
+import bankAccounts from "../Models/bankModel.js"
 
 
 
@@ -56,7 +56,7 @@ const SignUpController=async(req,res)=>{
             })
             saving.save()
             // THis is bank account
-            let bankAccount = new bankAccouts({
+            let bankAccount = new bankAccounts({
                 bankHolder: data.Email,
                 Amount: 800000
             })
