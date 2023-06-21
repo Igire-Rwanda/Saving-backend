@@ -6,9 +6,10 @@ const joinTeam=async(req,res)=>{
        const data=req.body
        const name=data.name
        const email=data.email 
+       const userName=data.userName
        const amount=req.body.amount;
 
-        const currentTeam=await Team.findOne({ name: data.teamName })
+        const currentTeam=await Team.findOne({ name: data.name})
            
         if(!currentTeam){
             res.status(400).json({error:"team not found"})
@@ -33,8 +34,9 @@ const joinTeam=async(req,res)=>{
 
                 };
                 //This is about adding name and email of new members 
-                createMember.name=name;
+                
                 createMember.email=email;
+                createMember.name=userName
                 currentTeam.members.push(createMember);
                 //This is about adding and checking if amount to team wallet 
                 currentTeam.wallet +=amount;
