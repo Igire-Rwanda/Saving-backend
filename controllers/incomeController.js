@@ -25,19 +25,12 @@ const createIncome = async (req, res) => {
 
 const readIncome = async (req, res) => {
      try {
-<<<<<<< Updated upstream
-         
-          const income = await incomes.find({})
+const income = await incomes.find({})
           if (income.length ==0){
-=======
-          const income = await incomes.find({})
-          if(income.length ==0){
->>>>>>> Stashed changes
                res.status(409).json({
                     message: "No data Found",
                     data: income,
                     error: "Data not found",
-<<<<<<< Updated upstream
                 })
           }
           else{res.status(200).json({
@@ -45,16 +38,6 @@ const readIncome = async (req, res) => {
                data: income
           })
      }
-=======
-               })  
-
-          }
-          else{
-               res.status(200).json({
-               message: "Incomes fetched successfully",
-               data: income
-          })}
->>>>>>> Stashed changes
           
      } catch (error) {
           res.status(500).json({
