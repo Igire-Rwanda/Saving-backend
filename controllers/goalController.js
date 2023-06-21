@@ -29,4 +29,29 @@ const createGoal = async (req, res) => {
      }
 }
 
-export default createGoal;
+const readGoal = async (req,res)=>{
+     try {
+          const response = await Item.find({})
+          if (response.length == 0) {
+               res.status(409).json({
+                   message: "No data Found",
+                   data: response,
+                   error: "Data not found",
+               })
+           } else {
+               res.status(200).json({
+                   message: "Found successfully",
+                   error: null,
+                   data: response
+               })
+           }
+     } catch (error) {
+          console.log("error catched", err)
+          res.status(500).json({
+              message: "failed find data",
+              error: "failed"
+          })
+          
+     }
+}
+export {readGoal,createGoal} ;
