@@ -39,7 +39,7 @@ const createGoal = async (req, res) => {
 
 const readGoal = async (req,res)=>{
      try {
-          const response = await Item.find({})
+          const response = await Goals.find({})
           if (response.length == 0) {
                res.status(409).json({
                    message: "No data Found",
@@ -54,7 +54,7 @@ const readGoal = async (req,res)=>{
                })
            }
      } catch (error) {
-          console.log("error catched", err)
+          console.log("error catched", error)
           res.status(500).json({
               message: "failed find data",
               error: "failed"
