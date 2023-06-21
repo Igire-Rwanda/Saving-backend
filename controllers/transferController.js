@@ -15,7 +15,11 @@ const transfer = async (req, res) => {
             return res.status(400).json({ message: "Bank account not found" });
         }
         else if (bankAccount.Amount < amount) {
+<<<<<<< Updated upstream
            return res.status(200).json({ message: "inssufient balance" })
+=======
+            res.status(200).json({ message: "inssufient balance" })
+>>>>>>> Stashed changes
         }
 
         else {
@@ -23,11 +27,17 @@ const transfer = async (req, res) => {
                 { bankHolder: email },
                 { $inc: { Amount: -amount } }
             )
-
+           await bankAccount.save()
         }
+<<<<<<< Updated upstream
 
         ///THis section is about updating saving account based on the amount
         const saving = savingAccount.findOne({ accountHolder: email })
+=======
+        
+        ///THis ection is about updating saving account based on the amount
+        const saving = await savingAccount.findOne({ accountHolder: email })
+>>>>>>> Stashed changes
         if (!saving) {
             res.status(400).json({ message: "you do not have saving wallet" })
         }
@@ -41,6 +51,7 @@ const transfer = async (req, res) => {
             res.status(200).json(currentSaving.amount)
             console.log(bankAccount.Amount)
             console.log(currentSaving.amount)
+           await currentSaving.save()
         }
 
     }
