@@ -8,8 +8,6 @@ const confirmSms = async (req, res) => {
         //let array = [{ name: "Marquise", email: "marquineza10@gmail.com" }, { name: "patrick", email: "munyeshurimanzi@gmail.com" }];
         //let team = req.y.team;
        const data = req.body;
-       const email=data.email;
-
         const confirm = await teamSchema.findOne({ teamName: data.name });
 
         if (!confirm) {
@@ -18,13 +16,13 @@ const confirmSms = async (req, res) => {
             });
 
         }else{
-
+            
             const member = confirm.members;
         for (let i = 0; i < member.length; i++) {
             let receiver = member[i].email;
             console.log(receiver);
-
-            if(!(receiver==email)){
+            
+            if((data.email==receiver)==false){
                   return res.status(404).json({
                     message:"your email not found"
                 })
