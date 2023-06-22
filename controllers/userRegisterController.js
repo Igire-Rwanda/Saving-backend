@@ -6,8 +6,10 @@ import nodemailer from "nodemailer"
 
 import savingAccount from "../Models/savingModel.js"
 import bankAccouts from "../Models/bankModel.js"
+import dotenv from "dotenv";
 
 
+dotenv.config();
 
 
 import { resourceLimits } from "worker_threads"
@@ -69,13 +71,13 @@ const SignUpController = async (req, res) => {
                 port: '465',
                 secure: 'true',
                 auth: {
-                    user: 'process.env.AUTH_EMAIL',
-                    pass: 'process.env.AUTH_PASS',
+                    user: process.env.AUTH_EMAIL,
+                    pass: process.env.AUTH_PASS,
                 },
             });
 
             var mailOptions = {
-                from: 'mysaving2023@gmail.com',
+                from: 'process.env.AUTH_EMAIL',
                 to: data.Email,
 
                 subject: 'you have succesfully signedIN',
