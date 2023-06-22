@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken"
 import nodemailer from "nodemailer"
 
 import savingAccount from "../Models/savingModel.js"
-import bankAccouts from "../Models/bankModel.js"
+import bankAccounts from "../Models/bankModel.js"
 import dotenv from "dotenv";
 
 
