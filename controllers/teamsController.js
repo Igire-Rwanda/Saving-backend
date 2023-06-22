@@ -5,7 +5,7 @@ import teamsSchema from "../Models/teamsModel.js"
 const createTeams = async (req, res) => {
     try {
         const bodyData = {
-            name: req.body.name,
+            teamName: req.body.teamName,
             members: req.body.members,
             requiredAmount: req.body.requiredAmount,
             wallet: req.body.wallet
@@ -29,7 +29,7 @@ const createTeams = async (req, res) => {
         }
 
         const data = new teamsSchema({
-            name: req.body.name,
+            teamName: req.body.teamName,
             members: req.body.members,
             requiredAmount: req.body.requiredAmount,
             wallet: req.body.wallet
