@@ -5,9 +5,11 @@ import jwt from "jsonwebtoken"
 import nodemailer from "nodemailer"
 
 import savingAccount from "../Models/savingModel.js"
-import bankAccounts from "../Models/bankModel.js"
+import bankAccouts from "../Models/bankModel.js"
+import dotenv from "dotenv";
 
 
+dotenv.config();
 
 
 import { resourceLimits } from "worker_threads"
@@ -15,9 +17,9 @@ const secretKey = '@@key'//This is my secret key
 
 
 
-const SignUpController=async(req,res)=>{
-    try{ 
-        const data=req.body
+const SignUpController = async (req, res) => {
+    try {
+        const data = req.body
 
 
         if (data.length === 0) {
@@ -31,8 +33,8 @@ const SignUpController=async(req,res)=>{
         if (existinguser) {
             res.status(200).json({
 
-                
-                message:"email already in use"
+
+                message: "email already in use"
 
             })
 
@@ -75,13 +77,13 @@ const SignUpController=async(req,res)=>{
                 port: '465',
                 secure: 'true',
                 auth: {
-                    user: 'process.env.AUTH_EMAIL',
-                    pass: 'process.env.AUTH_PASS',
+                    user: process.env.AUTH_EMAIL,
+                    pass: process.env.AUTH_PASS,
                 },
             });
 
             var mailOptions = {
-                from: 'mysaving2023@gmail.com',
+                from: process.env.AUTH_EMAIL,
                 to: data.Email,
 
                 subject: 'you have succesfully signedIN',
@@ -114,8 +116,8 @@ const Login = async (req, res) => {
     try {
         const data = req.body
         const existingUserEmail = await Users.findOne({ Email: data.Email })
-        if(!existingUserEmail){
-            res.status(400).json({message:"Invalid email"})
+        if (!existingUserEmail) {
+            res.status(400).json({ message: "Invalid email" })
         }
 
         else if (existingUserEmail) {
@@ -138,12 +140,12 @@ const Login = async (req, res) => {
         }
         else {
 
-            res.status(400).json({message:"Invalid credential or create your account"})
+            res.status(400).json({ message: "Invalid credential or create your account" })
         }
     }
     catch (err) {
         console.log("some error:", err)
-        res.status(500).json({message:"error occured"})
+        res.status(500).json({ message: "error occured" })
     }
 
 
@@ -185,5 +187,5 @@ const readUser = async (req, res) => {
 
 
 
-export { SignUpController, Login, readUser};
+export { SignUpController, Login, readUser };
 
