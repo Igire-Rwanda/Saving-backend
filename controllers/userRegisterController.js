@@ -77,7 +77,7 @@ const SignUpController = async (req, res) => {
             });
 
             var mailOptions = {
-                from: 'process.env.AUTH_EMAIL',
+                from: process.env.AUTH_EMAIL,
                 to: data.Email,
 
                 subject: 'you have succesfully signedIN',
