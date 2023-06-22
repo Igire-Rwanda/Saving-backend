@@ -12,7 +12,7 @@ const memberSchema = new mongoose.Schema({
 });
 
 const teamSchema = new mongoose.Schema({
-    name: {
+    teamName: {
         type: String,
         required: true,
     },
