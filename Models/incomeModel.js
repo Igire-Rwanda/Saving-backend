@@ -1,22 +1,22 @@
 import mongoose from "mongoose"
 
 const incomeSchema = new mongoose.Schema({
-     user_id:{
+     email: {
           type: String,
           required: "the id is required"
      },
-     amount:{
+     incomeAmount: {
           type: Number,
           required: "the amount is required"
-          },
-          source:{
-               type: String,
-               required: "the source of income is required"
-          } ,
-          date:{
-               type: String,
-               required: "the date of income is required"
-               }
+     },
+     incomeType: {
+          type: String,
+          required: "the source of income is required"
+     },
+     Period: {
+          type: String,
+          required: "the date of income is required"
+     }
 })
 export default mongoose.model("userIncomes", incomeSchema)
 
