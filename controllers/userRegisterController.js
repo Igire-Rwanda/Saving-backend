@@ -69,8 +69,8 @@ const SignUpController = async (req, res) => {
                 port: '465',
                 secure: 'true',
                 auth: {
-                    user: 'mysaving2023@gmail.com',
-                    pass: 'nvmfzfvvkzqoxlci',
+                    user: 'process.env.AUTH_EMAIL',
+                    pass: 'process.env.AUTH_PASS',
                 },
             });
 
