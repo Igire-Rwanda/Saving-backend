@@ -1,17 +1,31 @@
 import mongoose from "mongoose";
 
 const goalSchema = new mongoose.Schema({
-     itemName:{
+     Email:{
+          type:String,
+          required:"the name of item is required"
+     },
+
+     Title:{
           type:String,
           required:"the name of item is required"
      },
      amount:{
-          type:String,
+          type:Number,
           required:"the cost of the item is required "
      },
-     timeline:{
-          type: String,
+     startTime:{
+          type: Number,
+          required:"the time to start is required"
+     },
+     endTime:{
+          type: Number,
           required:"the time is required"
+     },
+     detailsGoals:{
+          type: String,
+          required:"details are needed for this goals"
+
      }
 
 })

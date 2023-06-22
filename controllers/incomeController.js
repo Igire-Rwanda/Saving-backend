@@ -3,10 +3,10 @@ import incomes from "../Models/incomeModel.js"
 const createIncome = async (req, res) => {
      try {
           const income = new incomes({
-               user_id: req.body.user_id,
-               amount: req.body.amount,
-               date: req.body.date,
-               source: req.body.source
+               email: req.body.email,
+               incomeAmount: req.body.incomeAmount,
+               Period: req.body.Period,
+               incomeType: req.body.incomeType
 
           });
           const incomeSaved = await income.save()
@@ -25,13 +25,20 @@ const createIncome = async (req, res) => {
 
 const readIncome = async (req, res) => {
      try {
-          let id = req.params.reqId;
-          let query = { _id: id };
-          const income = await incomes.find(query)
-          res.status(200).json({
+const income = await incomes.find({})
+          if (income.length ==0){
+               res.status(409).json({
+                    message: "No data Found",
+                    data: income,
+                    error: "Data not found",
+                })
+          }
+          else{res.status(200).json({
                message: "Incomes fetched successfully",
                data: income
           })
+     }
+          
      } catch (error) {
           res.status(500).json({
                message: error.message || "Some error occurred while fetching incomes."

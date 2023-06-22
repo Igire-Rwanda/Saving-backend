@@ -1,19 +1,19 @@
 import mongoose from "mongoose"
 
 const ExpenseSchema = new mongoose.Schema({
-     user_id: {
+     email: {
           type: String,
-          required: "personel id is required"
+          required: "personel email is required"
      },
-     category: {
+     expenseType: {
           type: String,
           required: "category is required"
      },
-     date: {
+     Period: {
           type: String,
           required: "date is required"
      },
-     amount: {
+     amountSpent: {
           type: Number,
           required: "amount is required"
      }

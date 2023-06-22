@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 
 const bankSchema = new mongoose.Schema({
-    
-   bankHolder:{
-    type:String,
+
+   bankHolder: {
+      type: String,
 
    },
-   Amount:{
-    type:Number
+   Amount: {
+      type: Number
    }
 
 })
