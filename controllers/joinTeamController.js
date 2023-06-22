@@ -45,12 +45,14 @@ const joinTeam=async(req,res)=>{
             
 
           return   res.status(200).json({message:"now you joined team a"}) 
+
         }
     }
 
+
     } catch(error){
         console.log(error)
-        res.status(500).json({message:"some error occured while joing team"})
+        res.status(500).json({ message: "some error occured while joing team" })
 
 
 
