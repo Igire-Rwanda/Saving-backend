@@ -9,7 +9,7 @@ const joinTeam=async(req,res)=>{
        const userName=data.userName
        const amount=req.body.amount;
 
-        const currentTeam=await Team.findOne({ name: data.name})
+        const currentTeam=await Team.findOne({ teamName:name})
            
         if(!currentTeam){
             res.status(400).json({error:"team not found"})
