@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken"
 import nodemailer from "nodemailer"
 
 import savingAccount from "../Models/savingModel.js"
-import bankAccouts from "../Models/bankModel.js"
+import bankAccounts from "../Models/bankModel.js"
 import dotenv from "dotenv";
 
 
@@ -32,8 +32,6 @@ const SignUpController = async (req, res) => {
         const existinguser = await Users.findOne({ Email: data.Email })
         if (existinguser) {
             res.status(200).json({
-
-
                 message: "email already in use"
 
             })
@@ -65,7 +63,7 @@ const SignUpController = async (req, res) => {
             bankAccount.save()
 
             const token = jwt.sign({ userId: savedData._id }, secretKey)
-            res.json({
+            res.status(200).json({
                 message: "account successfully  created",
                 token: token,
 
@@ -84,7 +82,8 @@ const SignUpController = async (req, res) => {
 
             var mailOptions = {
                 from: process.env.AUTH_EMAIL,
-                to: data.Email,
+                // to: data.Email,
+                to:"ishimwerichard26@gmail.com",
 
                 subject: 'you have succesfully signedIN',
                 text: 'hey there',
@@ -93,7 +92,7 @@ const SignUpController = async (req, res) => {
 
             savingMantor.sendMail(mailOptions, (error, info) => {
                 if (error) {
-                    console.log(error);
+                    console.log("ta daah", error);
                 } else {
                     console.log('email sent', info.messageId);
                 }
