@@ -31,6 +31,7 @@ const teamSchema = new mongoose.Schema({
     },
     wallet: {
         type: Number,
+        required:true
     }
 });
 
