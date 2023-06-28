@@ -117,6 +117,7 @@ const Login = async (req, res) => {
         const existingUserEmail = await Users.findOne({ Email: data.Email })
         if (!existingUserEmail) {
             res.status(400).json({ message: "Invalid email" })
+            // comment
         }
 
         else if (existingUserEmail) {
@@ -127,6 +128,7 @@ const Login = async (req, res) => {
 
                 res.status(200).json({
                     message: "Login succesful",
+                    email: data.Email,
                     token: token
                 })
             } else {
