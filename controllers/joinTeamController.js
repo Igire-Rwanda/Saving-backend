@@ -44,7 +44,7 @@ const joinTeam=async(req,res)=>{
                 await currentTeam.save();
             
 
-          return   res.status(200).json({message:"now you joined team a"}) 
+          return   res.status(200).json({message:"now you joined team:" + " "+ name}) 
 
         }
     }
