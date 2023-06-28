@@ -14,6 +14,7 @@ import response from "./Routes/response.js";
 import confirmSms from "./Routes/confirmSmsRoute.js";
 // import bankroute from "./Routes/bankroute.js";
 import transactionRoutes from './Routes/transactionRoutes.js';
+import withdraw from "./Routes/withdrawRoute.js"
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -41,6 +42,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use("/transfer", transactionRoutes);
 app.use("/api/v1/res", response)
+app.use("/api/v1/",withdraw)
 
 
 const connectToMongoDb = () => {
